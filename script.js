@@ -20,7 +20,7 @@ search.addEventListener("keypress", (e) => {
   }
 });
 
-weatherTemperature.addEventListener("click", (e) => {
+weatherTemperature.addEventListener("click", () => {
   if (weatherLocation === undefined) return;
 
   // Toggles between different measurement systems
