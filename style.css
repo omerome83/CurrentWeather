@@ -132,7 +132,7 @@ select {
 }
 
 input[type="text"]:focus {
-  outline: 2px solid var(--color-darker-gray);
+  outline: 1px solid var(--color-darker-gray);
 }
 
 a,
@@ -154,7 +154,8 @@ a:visited {
   padding: 2em;
   place-items: center;
   background-color: var(--color-white);
-  border-radius: 1em;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 0.5em;
 }
 
 .weather-card__icon img {
