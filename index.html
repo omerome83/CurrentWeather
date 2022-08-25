@@ -12,18 +12,14 @@
 <body>
 
     <main>
-
-        <h1 class="app-name">Weather<span>Forecast</span></h1>
+        <h1 class="app-name">Current<span>Weather</span></h1>
         <section class="search-city">
-            <input type="text" id="search" name="city" placeholder="Enter city name">
+            <input type="text" id="search" name="city" autocomplete="address-level2" placeholder="Enter city name..">
         </section>
-
         <section id="weather-card">
-
             <div class="weather-card__icon">
                 <img src="" alt="" srcset="">
             </div>
-
             <div class="weather-card__temperature">
                 <h2></h2>
             </div>
@@ -31,26 +27,20 @@
                 <h3></h3>
             </div>
             <div class="weather-card__location">
-                <h3></h3>
+                <h4></h4>
             </div>
-
-            <!-- <div class="weather-card__feels-like">
-                <span>Feels Like</span>
-                <h3></h3>
+            <div class="weather-card__more-info">
+                <div class="weather-card__feels-like">
+                    <h5>Feels Like</h5>
+                    <span></span>
+                </div>
+                <div class="weather-card__humidity">
+                    <h5>Humidity</h5>
+                    <span></span>
+                </div>
             </div>
-
-            <div class="weather-card__humidity">
-                <span>Humidity</span>
-                <h3></h3>
-            </div> -->
-
         </section>
-
-
     </main>
-
-
-
 
     <script src="./script.js"></script>
 </body>

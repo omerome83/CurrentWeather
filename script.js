@@ -1,17 +1,18 @@
 const search = document.querySelector("#search");
+
 const card = document.getElementById("weather-card");
 const weatherIcon = document.querySelector(".weather-card__icon img");
 const weatherTemperature = document.querySelector(".weather-card__temperature h2");
 const weatherDescription = document.querySelector(".weather-card__description h3");
-const weatherLocation = document.querySelector(".weather-card__location h3");
-const weatherFeelsLike = document.querySelector(".weather-card__feels-like h4");
-const weatherHumidity = document.querySelector(".weather-card__humidity h4");
+const weatherLocation = document.querySelector(".weather-card__location h4");
+const weatherFeelsLike = document.querySelector(".weather-card__feels-like span");
+const weatherHumidity = document.querySelector(".weather-card__humidity span");
 
-const apiKey = `72b932e7cec2a6fa6b1c0b4afa0136e5`;
+const apiKey = "72b932e7cec2a6fa6b1c0b4afa0136e5";
+let city = "";
+let measurementSystem = "imperial";
 
 search.addEventListener("keypress", (e) => {
-  let city = "";
-
   if (e.key === "Enter" && search.value !== "") {
     city = search.value;
 
@@ -19,13 +20,22 @@ search.addEventListener("keypress", (e) => {
   }
 });
 
-// const getCity = () => {
+weatherTemperature.addEventListener("click", (e) => {
+  if (weatherLocation === undefined) return;
 
-// };
+  // Toggles between different measurement systems
+  if (measurementSystem === "imperial") {
+    measurementSystem = "metric";
+  } else {
+    measurementSystem = "imperial";
+  }
+
+  fetchWeatherDetails(city);
+});
 
 const fetchWeatherDetails = async (city) => {
   try {
-    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${measurementSystem}&appid=${apiKey}`;
 
     const response = await fetch(api);
     const data = await response.json();
@@ -33,8 +43,9 @@ const fetchWeatherDetails = async (city) => {
     const weather = {
       temp: data.main.temp,
       location: data.name,
-      temp_high: data.main.temp_max,
-      temp_low: data.main.temp_min,
+      lat: data.coord.lat,
+      lon: data.coord.lon,
+      country: data.sys.country,
       feels_like: data.main.feels_like,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
@@ -45,39 +56,37 @@ const fetchWeatherDetails = async (city) => {
 
     return data;
   } catch (error) {
-    // alert(error);
+    console.log(error);
   }
 };
 
-// let city = getCity();
-
 const formatWeather = (weather) => {
-  console.log(weather);
   const {
     temp,
     location,
-    temp_high,
-    temp_low,
+    lat,
+    lon,
+    country,
     description,
     feels_like,
     icon,
     humidity,
   } = weather;
 
+  // Displays the card after being initially set to none
   card.style.display = "grid";
 
   const weatherIconUrl = `http://openweathermap.org/img/wn/${icon}@4x.png`;
+  const googleMapsUrl = `http://maps.google.com/maps?q=${lat},${lon}`;
 
   weatherIcon.src = weatherIconUrl;
-  weatherLocation.innerHTML = location;
+  weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">${location}, ${country}</a>`;
 
   let roundedTempeature = Math.round(temp);
   let roundedFeelsLike = Math.round(feels_like);
 
-  weatherTemperature.innerHTML = `${roundedTempeature}°`;
-  weatherDescription.innerHTML = description;
-  // weatherFeelsLike.innerHTML = `${roundedFeelsLike}°`;
-  // weatherHumidity.innerHTML = humidity + "%";
+  weatherTemperature.textContent = `${roundedTempeature}°`;
+  weatherDescription.textContent = description;
+  weatherFeelsLike.textContent = `${roundedFeelsLike}°`;
+  weatherHumidity.textContent = `${humidity}%`;
 };
-// Inside addeventlistener
-// let city = cityText.innerHTML;

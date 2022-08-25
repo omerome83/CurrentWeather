@@ -80,6 +80,14 @@ select {
 /* End of CSS Reset */
 
 :root {
+  /* Colors */
+
+  --color-accent: #ec6e4c;
+  --color-gray: rgb(242, 242, 242);
+  --color-light-gray: rgb(204, 204, 204);
+  --color-darker-gray: rgb(72, 72, 74);
+  --color-white: rgb(255, 255, 255);
+
   /* Font Sizes */
   --font-size-1600: 4rem;
   --font-size-1400: 3.5rem;
@@ -102,7 +110,11 @@ body {
   display: grid;
   place-content: center;
   font-family: "Monda", sans-serif;
-  background-color: #b2ffff;
+  /* Fades background image slightly */
+  background: linear-gradient(rgba(255, 255, 255, 0.125), rgba(255, 255, 255, 0.125)),
+    url(./images/background.webp) no-repeat;
+  background-size: cover;
+  color: var(--color-darker-gray);
 }
 
 input[type="text"],
@@ -111,18 +123,28 @@ select {
   padding: 0.75em 2em;
   margin: 1em 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-light-gray);
   border-radius: 0.5em;
   text-align: center;
+  background-image: url("./images/search.png");
+  background-repeat: no-repeat;
+  background-position: 10px 10px;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid var(--color-darker-gray);
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: var(--color-accent);
 }
 
 /* Custom Classes */
 
-.app-name {
-  /* margin-bottom: 0.25em; */
-}
 .app-name span {
-  color: #ec6e4c;
+  color: var(--color-accent);
 }
 
 #weather-card {
@@ -131,7 +153,7 @@ select {
   max-width: 30em;
   padding: 2em;
   place-items: center;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 1em;
 }
 
@@ -141,6 +163,34 @@ select {
 
 .weather-card__temperature {
   font-size: var(--font-size-1600);
+  color: var(--color-darker-gray);
+}
+
+.weather-card__temperature:hover,
+.weather-card__location:hover {
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.weather-card__temperature h2 {
+  margin-top: -0.25em;
+}
+
+.weather-card__location {
+  color: var(--color-accent);
+}
+
+.weather-card__more-info {
+  margin-top: 1.5em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  text-align: center;
+}
+
+.weather-card__more-info h5 {
+  margin: 0;
+  color: var(--color-darker-gray);
 }
 
 .weather-card__description,
