@@ -76,8 +76,8 @@ const formatWeather = (weather) => {
   // Displays the card after being initially set to none
   card.style.display = "grid";
 
-  const weatherIconUrl = `http://openweathermap.org/img/wn/${icon}@4x.png`;
-  const googleMapsUrl = `http://maps.google.com/maps?q=${lat},${lon}`;
+  const weatherIconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
+  const googleMapsUrl = `https://maps.google.com/maps?q=${lat},${lon}`;
 
   weatherIcon.src = weatherIconUrl;
   weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">${location}, ${country}</a>`;
