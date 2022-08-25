@@ -15,7 +15,7 @@ search.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && search.value !== "") {
     city = search.value;
 
-    fetchWeatherDetails(city).catch((err) => console.log(err));
+    fetchWeatherDetails(city);
   }
 });
 
@@ -24,30 +24,35 @@ search.addEventListener("keypress", (e) => {
 // };
 
 const fetchWeatherDetails = async (city) => {
-  const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+  try {
+    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
-  const response = await fetch(api);
-  const data = await response.json();
+    const response = await fetch(api);
+    const data = await response.json();
 
-  console.log(data);
+    const weather = {
+      temp: data.main.temp,
+      location: data.name,
+      temp_high: data.main.temp_max,
+      temp_low: data.main.temp_min,
+      feels_like: data.main.feels_like,
+      description: data.weather[0].description,
+      icon: data.weather[0].icon,
+      humidity: data.main.humidity,
+    };
 
-  const weather = {
-    temp: data.main.temp,
-    location: data.name,
-    temp_high: data.main.temp_max,
-    temp_low: data.main.temp_min,
-    feels_like: data.main.feels_like,
-    description: data.weather[0].description,
-    icon: data.weather[0].icon,
-    humidity: data.main.humidity,
-  };
+    formatWeather(weather);
 
-  formatWeather(weather);
+    return data;
+  } catch (error) {
+    // alert(error);
+  }
 };
 
 // let city = getCity();
 
 const formatWeather = (weather) => {
+  console.log(weather);
   const {
     temp,
     location,
