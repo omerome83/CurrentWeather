@@ -74,16 +74,14 @@ const formatWeather = (weather) => {
   } = weather;
 
   const googleMapsUrl = `https://maps.google.com/maps?q=${lat},${lon}`;
-  let roundedTempeature = Math.round(temp);
-  let roundedFeelsLike = Math.round(feels_like);
 
   // Displays the card after being initially set to none
   card.style.display = "grid";
 
   weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
   weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">${location}, ${country}</a>`;
-  weatherTemperature.textContent = `${roundedTempeature}°`;
+  weatherTemperature.textContent = Math.round(`${temp}`) + "°";
   weatherDescription.textContent = description;
-  weatherFeelsLike.textContent = `${roundedFeelsLike}°`;
+  weatherFeelsLike.textContent = Math.round(`${feels_like}`) + "°";
   weatherHumidity.textContent = `${humidity}%`;
 };
