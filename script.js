@@ -5,7 +5,7 @@ const weatherMeasurementUnit = document.querySelector(
   ".weather-card__measurement-unit h6"
 );
 const weatherIcon = document.querySelector(".weather-card__icon img");
-const weatherTemperature = document.querySelector(".weather-card__temperature h2");
+const weatherTemperature = document.querySelector(".weather-card__temperature h1");
 const weatherDescription = document.querySelector(".weather-card__description h3");
 const weatherLocation = document.querySelector(".weather-card__location h4");
 const weatherFeelsLike = document.querySelector(".weather-card__feels-like span");
