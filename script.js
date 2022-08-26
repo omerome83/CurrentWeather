@@ -1,6 +1,9 @@
 const search = document.querySelector("#search");
 
 const card = document.getElementById("weather-card");
+const weatherMeasurementSystem = document.querySelector(
+  ".weather-card__measurement-system h6"
+);
 const weatherIcon = document.querySelector(".weather-card__icon img");
 const weatherTemperature = document.querySelector(".weather-card__temperature h2");
 const weatherDescription = document.querySelector(".weather-card__description h3");
@@ -16,6 +19,8 @@ search.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && search.value !== "") {
     city = search.value;
 
+    weatherMeasurementSystem.textContent = measurementSystem;
+
     fetchWeatherDetails(city);
   }
 });
@@ -26,8 +31,10 @@ weatherTemperature.addEventListener("click", () => {
   // Toggles between different measurement systems
   if (measurementSystem === "imperial") {
     measurementSystem = "metric";
+    weatherMeasurementSystem.textContent = measurementSystem;
   } else {
     measurementSystem = "imperial";
+    weatherMeasurementSystem.textContent = measurementSystem;
   }
 
   fetchWeatherDetails(city);
