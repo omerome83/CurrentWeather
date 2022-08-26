@@ -183,6 +183,7 @@ a:visited {
   margin-top: -0.25em;
 }
 
+.weather-card__measurement-system,
 .weather-card__location {
   color: var(--color-accent);
 }
@@ -197,7 +198,7 @@ a:visited {
 
 .weather-card__more-info h5 {
   margin: 0;
-  color: var(--color-darker-gray);
+  /* color: var(--color-darker-gray); */
 }
 
 .weather-card__description,
