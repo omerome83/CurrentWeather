@@ -159,7 +159,6 @@ a:visited {
 }
 
 .weather-card__measurement-system h6 {
-  text-transform: capitalize;
   margin: 0;
 }
 

@@ -13,7 +13,9 @@ const weatherHumidity = document.querySelector(".weather-card__humidity span");
 
 const apiKey = "72b932e7cec2a6fa6b1c0b4afa0136e5";
 let city = "";
-let measurementSystem = "imperial";
+
+// Default Measurement System
+let measurementSystem = "Imperial";
 
 search.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && search.value !== "") {
@@ -37,11 +39,11 @@ const measurementSystemToggle = () => {
   if (weatherLocation === undefined) return;
 
   // Toggles between different measurement systems
-  if (measurementSystem === "imperial") {
-    measurementSystem = "metric";
+  if (measurementSystem === "Imperial") {
+    measurementSystem = "Metric";
     weatherMeasurementSystem.textContent = measurementSystem;
   } else {
-    measurementSystem = "imperial";
+    measurementSystem = "Imperial";
     weatherMeasurementSystem.textContent = measurementSystem;
   }
 
