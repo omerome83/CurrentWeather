@@ -76,12 +76,10 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
 /* End of CSS Reset */
 
 :root {
   /* Colors */
-
   --color-accent: #ec6e4c;
   --color-light-gray: rgb(242, 242, 242);
   --color-gray: rgb(204, 204, 204);
@@ -142,7 +140,6 @@ a:visited {
 }
 
 /* Custom Classes */
-
 .app-name span {
   color: var(--color-accent);
 }
