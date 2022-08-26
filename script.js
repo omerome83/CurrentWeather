@@ -36,7 +36,6 @@ weatherMeasurementUnit.addEventListener("click", () => {
 });
 
 const measurementUnitToggle = () => {
-  // Toggles between different measurement units
   if (measurementUnit === "imperial") {
     measurementUnit = "metric";
     weatherMeasurementUnit.textContent = measurementUnit;
