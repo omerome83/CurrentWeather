@@ -172,6 +172,7 @@ a:visited {
   color: var(--color-darker-gray);
 }
 
+.weather-card__measurement-system:hover,
 .weather-card__temperature:hover,
 .weather-card__location:hover {
   cursor: pointer;

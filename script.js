@@ -26,6 +26,14 @@ search.addEventListener("keypress", (e) => {
 });
 
 weatherTemperature.addEventListener("click", () => {
+  measurementSystemToggle();
+});
+
+weatherMeasurementSystem.addEventListener("click", () => {
+  measurementSystemToggle();
+});
+
+const measurementSystemToggle = () => {
   if (weatherLocation === undefined) return;
 
   // Toggles between different measurement systems
@@ -38,7 +46,7 @@ weatherTemperature.addEventListener("click", () => {
   }
 
   fetchWeatherDetails(city);
-});
+};
 
 const fetchWeatherDetails = async (city) => {
   try {
