@@ -1,8 +1,8 @@
 const search = document.querySelector("#search");
 
 const card = document.getElementById("weather-card");
-const weatherMeasurementSystem = document.querySelector(
-  ".weather-card__measurement-system h6"
+const weatherMeasurementUnit = document.querySelector(
+  ".weather-card__measurement-unit h6"
 );
 const weatherIcon = document.querySelector(".weather-card__icon img");
 const weatherTemperature = document.querySelector(".weather-card__temperature h2");
@@ -14,37 +14,37 @@ const weatherHumidity = document.querySelector(".weather-card__humidity span");
 const apiKey = "72b932e7cec2a6fa6b1c0b4afa0136e5";
 let city = "";
 
-// Default Measurement System
-let measurementSystem = "Imperial";
+// Default Measurement Unit
+let measurementUnit = "Imperial";
 
 search.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && search.value !== "") {
     city = search.value;
 
-    weatherMeasurementSystem.textContent = measurementSystem;
+    weatherMeasurementUnit.textContent = measurementUnit;
 
     fetchWeatherDetails(city);
   }
 });
 
 weatherTemperature.addEventListener("click", () => {
-  measurementSystemToggle();
+  measurementUnitToggle();
 });
 
-weatherMeasurementSystem.addEventListener("click", () => {
-  measurementSystemToggle();
+weatherMeasurementUnit.addEventListener("click", () => {
+  measurementUnitToggle();
 });
 
-const measurementSystemToggle = () => {
+const measurementUnitToggle = () => {
   if (weatherLocation === undefined) return;
 
-  // Toggles between different measurement systems
-  if (measurementSystem === "Imperial") {
-    measurementSystem = "Metric";
-    weatherMeasurementSystem.textContent = measurementSystem;
+  // Toggles between different measurement units
+  if (measurementUnit === "Imperial") {
+    measurementUnit = "Metric";
+    weatherMeasurementUnit.textContent = measurementUnit;
   } else {
-    measurementSystem = "Imperial";
-    weatherMeasurementSystem.textContent = measurementSystem;
+    measurementUnit = "Imperial";
+    weatherMeasurementUnit.textContent = measurementUnit;
   }
 
   fetchWeatherDetails(city);
@@ -52,7 +52,7 @@ const measurementSystemToggle = () => {
 
 const fetchWeatherDetails = async (city) => {
   try {
-    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${measurementSystem}&appid=${apiKey}`;
+    const api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${measurementUnit}&appid=${apiKey}`;
 
     const response = await fetch(api);
     const data = await response.json();
