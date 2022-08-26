@@ -55,7 +55,7 @@ const fetchWeatherDetails = async (city) => {
     const data = await response.json();
 
     const weather = {
-      temp: data.main.temp,
+      temperature: data.main.temp,
       location: data.name,
       lat: data.coord.lat,
       lon: data.coord.lon,
