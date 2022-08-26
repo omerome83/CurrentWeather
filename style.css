@@ -83,8 +83,8 @@ select {
   /* Colors */
 
   --color-accent: #ec6e4c;
-  --color-gray: rgb(242, 242, 242);
-  --color-light-gray: rgb(204, 204, 204);
+  --color-light-gray: rgb(242, 242, 242);
+  --color-gray: rgb(204, 204, 204);
   --color-darker-gray: rgb(72, 72, 74);
   --color-white: rgb(255, 255, 255);
 
@@ -123,7 +123,7 @@ select {
   padding: 0.75em 2em;
   margin: 1em 0;
   display: inline-block;
-  border: 1px solid var(--color-light-gray);
+  border: 1px solid var(--color-gray);
   border-radius: 0.5em;
   text-align: center;
   background-image: url("./images/search.png");
@@ -154,7 +154,7 @@ a:visited {
   padding: 2em;
   place-items: center;
   background-color: var(--color-white);
-  border: 1px solid var(--color-light-gray);
+  border: 1px solid var(--color-gray);
   border-radius: 0.5em;
 }
 
@@ -198,7 +198,6 @@ a:visited {
 
 .weather-card__more-info h5 {
   margin: 0;
-  /* color: var(--color-darker-gray); */
 }
 
 .weather-card__description,
