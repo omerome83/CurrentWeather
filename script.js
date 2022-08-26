@@ -76,7 +76,7 @@ const fetchWeatherDetails = async (city) => {
 
 const formatWeather = (weather) => {
   const {
-    temp,
+    temperature,
     location,
     lat,
     lon,
@@ -94,7 +94,7 @@ const formatWeather = (weather) => {
 
   weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
   weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">${location}, ${country}</a>`;
-  weatherTemperature.textContent = Math.round(`${temp}`) + "°";
+  weatherTemperature.textContent = Math.round(`${temperature}`) + "°";
   weatherDescription.textContent = description;
   weatherFeelsLike.textContent = Math.round(`${feels_like}`) + "°";
   weatherHumidity.textContent = `${humidity}%`;
