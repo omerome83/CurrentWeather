@@ -148,7 +148,7 @@ a:visited {
   display: none;
   grid-template-columns: repeat(1, 1fr);
   max-width: 30em;
-  padding: 2em;
+  padding: 1em 2em;
   place-items: center;
   background-color: var(--color-white);
   border: 1px solid var(--color-gray);
