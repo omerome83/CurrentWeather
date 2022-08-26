@@ -15,7 +15,7 @@ const apiKey = "72b932e7cec2a6fa6b1c0b4afa0136e5";
 let city = "";
 
 // Default Measurement Unit
-let measurementUnit = "Imperial";
+let measurementUnit = "imperial";
 
 search.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && search.value !== "") {
@@ -39,11 +39,11 @@ const measurementUnitToggle = () => {
   if (weatherLocation === undefined) return;
 
   // Toggles between different measurement units
-  if (measurementUnit === "Imperial") {
-    measurementUnit = "Metric";
+  if (measurementUnit === "imperial") {
+    measurementUnit = "metric";
     weatherMeasurementUnit.textContent = measurementUnit;
   } else {
-    measurementUnit = "Imperial";
+    measurementUnit = "imperial";
     weatherMeasurementUnit.textContent = measurementUnit;
   }
 

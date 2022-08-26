@@ -157,6 +157,7 @@ a:visited {
 
 .weather-card__measurement-unit h6 {
   margin: 0;
+  text-transform: capitalize;
 }
 
 .weather-card__icon img {
