@@ -89,6 +89,7 @@ select {
   /* Font Sizes */
   --font-size-1600: 4rem;
   --font-size-1400: 3.5rem;
+  --font-size-1200: 3rem;
   --font-size-1000: 2.5rem;
   --font-size-800: 2rem;
   --font-size-700: 1.75rem;
@@ -165,7 +166,7 @@ a:visited {
 }
 
 .weather-card__temperature {
-  font-size: var(--font-size-1600);
+  font-size: var(--font-size-1400);
   color: var(--color-darker-gray);
 }
 
