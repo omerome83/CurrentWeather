@@ -27,10 +27,6 @@ search.addEventListener("keypress", (e) => {
   }
 });
 
-weatherTemperature.addEventListener("click", () => {
-  measurementUnitToggle();
-});
-
 weatherMeasurementUnit.addEventListener("click", () => {
   measurementUnitToggle();
 });
