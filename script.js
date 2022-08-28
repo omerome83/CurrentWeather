@@ -89,7 +89,7 @@ const formatWeather = (weather) => {
   card.style.display = "grid";
 
   weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
-  weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer">${location}, ${country}</a>`;
+  weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank">${location}, ${country}</a>`;
   weatherTemperature.textContent = Math.round(`${temperature}`) + "°";
   weatherDescription.textContent = description;
   weatherFeelsLike.textContent = Math.round(`${feels_like}`) + "°";
