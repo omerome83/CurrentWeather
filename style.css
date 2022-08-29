@@ -171,7 +171,6 @@ a:visited {
 }
 
 .weather-card__measurement-unit:hover,
-.weather-card__temperature:hover,
 .weather-card__location:hover {
   cursor: pointer;
   opacity: 0.85;
