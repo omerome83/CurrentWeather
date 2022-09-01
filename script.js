@@ -1,3 +1,5 @@
+"use strict";
+
 const search = document.querySelector("#search");
 
 const card = document.getElementById("weather-card");
