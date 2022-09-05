@@ -90,6 +90,9 @@ const formatWeather = (weather) => {
   // Displays the card after being initially set to none
   card.style.display = "grid";
 
+  // document.body.style.backgroundImage =
+  //   "url('https://source.unsplash.com/1920x1080/? " + city + "')";
+
   weatherIcon.src = `https://openweathermap.org/img/wn/${icon}@4x.png`;
   weatherLocation.innerHTML = `<a href="${googleMapsUrl}" target="_blank">${location}, ${country}</a>`;
   weatherTemperature.textContent = Math.round(`${temperature}`) + "°";
